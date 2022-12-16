@@ -1,4 +1,4 @@
-import { View, Text, ImageBackground, StyleSheet, FlatList, KeyboardAvoidingView } from 'react-native'
+import { View, Text, ImageBackground, StyleSheet, FlatList, KeyboardAvoidingView, Platform } from 'react-native'
 import React from 'react'
 import Message from '../components/Message';
 import bg from '../../assets/images/BG.png';
@@ -16,8 +16,9 @@ const ChatInside = () => {
     },[route.params.name]);
 
     return (
-        <KeyboardAvoidingView
+        <KeyboardAvoidingView 
             behavior={Platform.OS==='ios' ? 'padding': 'height'}
+            keyboardVerticalOffset={Platform.OS==='ios'? 60: 90}
             style={styles.bg}
         >
             <ImageBackground source={bg} style={styles.bg}>
